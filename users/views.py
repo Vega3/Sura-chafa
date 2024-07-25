@@ -1,17 +1,17 @@
+from django.contrib.auth import login as auth_login, authenticate
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
-from .forms import RegistroForm
+from django.contrib.auth.forms import AuthenticationForm  
 
-def register(request):
+def login(request):
     if request.method == 'POST':
-        form = RegistroForm(request.POST)
+        form = AuthenticationForm(data=request.POST)
         if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=password)
-            login(request, user)
-            return redirect('inicio')
+            user = form.get_user()  # Obtiene el usuario del formulario
+            auth_login(request, user)  # Inicia sesión al usuario
+            return redirect('patient_home')  # Redirige a la vista patient_home después del login
     else:
-        form = RegistroForm()
+        form = AuthenticationForm()  # Muestra un formulario vacío para GET
     return render(request, 'login.html', {'form': form})
+
+def patient_home(request):
+    return render(request, 'patient_home.html')

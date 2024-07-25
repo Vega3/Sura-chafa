@@ -1,7 +1,7 @@
 .loginbox, .signupbox {
     border: 1px solid #ccc;
     box-shadow: 
-        20px 20px 20px rgba(0, 0, 0, 0.3), /* Sombra hacia la derecha y abajo */
+        20px 20px 20px rgba(0, 0, 0, 0.3), 
         -20px -20px 20px rgba(0, 0, 0, 0.3);
     background-size: cover;
     background-repeat: no-repeat;
@@ -37,8 +37,8 @@
     height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
-    filter: blur(9px); /* Ajusta el nivel de desenfoque aquí */
-    z-index: -1; /* Coloca el pseudo-elemento detrás del contenido del div */
+    filter: blur(9px); 
+    z-index: -1; 
 }
 
 .backg {
