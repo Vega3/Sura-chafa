@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from .forms import RegistroForm
 
-def registro(request):
+def register(request):
     if request.method == 'POST':
         form = RegistroForm(request.POST)
         if form.is_valid():
@@ -14,4 +14,4 @@ def registro(request):
             return redirect('inicio')
     else:
         form = RegistroForm()
-    return render(request, 'registro.html', {'form': form})
+    return render(request, 'login.html', {'form': form})
