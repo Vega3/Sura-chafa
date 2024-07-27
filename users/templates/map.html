@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../static/estilosP.css">
     <script src="https://kit.fontawesome.com/bbabc02c0b.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-
 </head>
 <body>
 
@@ -17,32 +16,43 @@
             <h1>S U R I T A</h1>
         </div>
         <nav class="navigation">
-            
+            <!-- Navigation content -->
         </nav>
     </header>
     
-
     <div class="container">
-
         <div class="left-column">
             <img src="../images/pic3.jpg" alt="Descriptive Text" class="responsive-image">
         </div>
 
         <div class="right-column">
             <main>
-
-                <div id='map' style='height:400px; width:600px'></div>
+                <div id="map" style="height: 400px; width: 600px;"></div>
                 <script>
-                var map = L.map('map').setView([6.2442, -75.5812], 13);
-                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    maxZoom: 19,
-                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                }).addTo(map);
-                </script>
+                  
+                    var map = L.map('map').setView([6.2442, -75.5812], 13);
+                    
+              
+                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        maxZoom: 19,
+                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    }).addTo(map);
 
+                  
+                    var locations = [
+                        {lat: 6.2518, lng: -75.5636, popup: "EPS Sura - Centro"},
+                        {lat: 6.2308, lng: -75.5906, popup: "EPS Sura - Laureles"},
+                        {lat: 6.2672, lng: -75.5697, popup: "EPS Sura - Bello"}
+                    ];
+
+                    locations.forEach(function(location) {
+                        var marker = L.marker([location.lat, location.lng]).addTo(map);
+                        marker.bindPopup(location.popup);
+                    });
+                </script>
             </main>
         </div>
     </div>
-    
+
 </body>
 </html>
