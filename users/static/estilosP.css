@@ -3,11 +3,11 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color:  #cf936d;
+    background-color:  #6d99cf;
 }
 
 .main-header {
-    background-color:  #703a07;
+    background-color:  #072870;
     display: flex;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -21,7 +21,7 @@ body {
 .titlee h1 {
     margin-left: 0%;
     font-size: 25px;
-    color:hsla(23, 39%, 48%, 0.954);
+    color: #f8eea6;
 }
 
 .navigation li {
@@ -42,14 +42,14 @@ body {
 
 .navigation ul li a {
     text-decoration: none;
-    color: #fc8646bd;
+    color: #f8eea6;
     padding: 5px 10px;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .navigation ul li a:hover {
-    background-color: #8e5d3d;
+    background-color: #517df7;
     color: #fff;
 }
 
