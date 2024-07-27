@@ -22,6 +22,7 @@ body {
     margin-left: 0%;
     font-size: 25px;
     color: #f8eea6;
+    padding: 0px 15px;
 }
 
 .navigation li {
@@ -43,7 +44,7 @@ body {
 .navigation ul li a {
     text-decoration: none;
     color: #f8eea6;
-    padding: 5px 10px;
+    padding: 2px 2px;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
 }
