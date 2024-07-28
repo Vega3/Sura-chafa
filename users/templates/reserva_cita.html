@@ -1,19 +1,56 @@
-<!DOCTYPE html>
-<html lang="es">
-    
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'estilos.css' %}">
-    <title>Reservar Cita</title>
-</head>
+{% extends "accounts/index.html" %}
 
-<body>
-    <h1>Book Appointment</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Reservar</button>
-    </form>
-</body>
-</html>
+{% block title %}
+    Agendas
+{% endblock %}
+
+{% block accounts_container %}
+<h2>Agendas Disponibles</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Médico
+            </th>
+            <th>
+                Día
+            </th>
+            <th>
+                Horario
+            </th>
+            <th>
+                Opciones
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for consulta in object_list %}
+        <tr>
+            <td>
+                <a href=""># {{ consulta.pk }}</a>
+            </td>
+            <td>
+                {{ consulta.medico }}
+            </td>
+            <td>
+                {{ consulta.dia|date:"d/m/Y" }}
+            </td>
+            <td>
+                {{ consulta.get_horario_display }}
+            </td>
+            <td>
+                <a href="{% url 'medicos:agendar_consulta_actualizar' consulta.id %}" class="text-primary" style="padding-left: 10px; text-decoration: none;">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <a href="{% url 'medicos:agendar_consulta_eliminar' consulta.id %}" class="mr-1 text-danger" style="padding-left: 10px; text-decoration: none;">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
